@@ -42,7 +42,7 @@ struct HomeView: View {
                                     .bold()
                                     .foregroundColor(.green)
                                 
-                                Text("\(viewModel.active)mins")
+                                Text("\(viewModel.exercise)mins")
                                     .bold()
                             }.padding(.bottom)
                             
@@ -59,9 +59,9 @@ struct HomeView: View {
                         }
                         Spacer()
                         ZStack{
-                            ProgressCricleView(progress: viewModel.$calories, goal: 600, color: .red)
-                            ProgressCricleView(progress: viewModel.$active, goal: 60, color: .green).padding(.all, 20)
-                            ProgressCricleView(progress: viewModel.$stand, goal: 12, color: .blue).padding(.all, 40)
+                            ProgressCricleView(progress: $viewModel.calories, goal: 600, color: .red)
+                            ProgressCricleView(progress: $viewModel.exercise, goal: 60, color: .green).padding(.all, 20)
+                            ProgressCricleView(progress: $viewModel.stand, goal: 12, color: .blue).padding(.all, 40)
 
                         }.padding(.horizontal)
                         

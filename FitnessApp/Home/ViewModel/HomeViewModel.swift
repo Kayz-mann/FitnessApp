@@ -11,7 +11,7 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     let healthManager = HealthManager.shared
     @Published var calories: Int =  123
-    @Published var exercise : Int =  23
+    @Published var exercise: Int =  23
     @Published var stand: Int =  3
 
     var mockActivities =  [
@@ -34,27 +34,31 @@ class HomeViewModel: ObservableObject {
         Task {
             do {
                 try await healthManager.requestHealthKitAccess()
-                healthManager.fetchTodayCaloriesBurned {result in
-                    switch result{
-                    case .success(let success):
-                        print(success)
-                    case .failure(let failure):
-                        print(failure.localizedDescription)
-                    }
-                }
+//                healthManager.fetchTodayCaloriesBurned {result in
+//                    switch result{
+//                    case .success(let success):
+//                        print(success)
+//                    case .failure(let failure):
+//                        print(failure.localizedDescription)
+//                    }
+//                }
+                
+                fetchTodayCalories()
+                fetchTodayExerciseTime()
+                fetchTodayStandHours()
 
             }
         }
         
-        
-        healthManager.fetchTodayStandHours {result in
-            switch result{
-            case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
+//        
+//        healthManager.fetchTodayStandHours {result in
+//            switch result{
+//            case .success(let success):
+//                print(success)
+//            case .failure(let failure):
+//                print(failure.localizedDescription)
+//            }
+//        }
     }
     
     func fetchTodayCalories() {
