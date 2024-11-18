@@ -85,9 +85,35 @@ struct HomeView: View {
                         }
                     }.padding(.horizontal)
                     
-                    LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)){
-                        ForEach(viewModel.mockActivities, id: \.id) {activity in
-                            ActivityCard(activity: activity)}
+                    if viewModel.activities.isEmpty {
+                        VStack {
+                            Image(systemName: "figure.walk")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.gray)
+                            
+                            Text("No fitness activities today")
+                                .font(.headline)
+                                .foregroundColor(.gray)
+                            
+                            Text("Keep moving to track your progress!")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+//                        LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)){
+//                            ForEach(viewModel.mockActivities, id: \.id) { activity in
+//                                ActivityCard(activity: activity)
+//                            }
+//                        }.padding()
+                    } else {
+                        LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)){
+                            ForEach(viewModel.activities, id: \.id) { activity in
+                                ActivityCard(activity: activity)
+                            }
+                        }
                     }
                     
                     HStack{
@@ -109,7 +135,7 @@ struct HomeView: View {
                     }.padding(.horizontal)
                     
                     LazyVStack{
-                        ForEach(viewModel.mockWorkouts, id: \.id) {workout in
+                        ForEach(viewModel.workouts, id: \.id) {workout in
                             WorkoutCard(workout: workout)
                         }
 

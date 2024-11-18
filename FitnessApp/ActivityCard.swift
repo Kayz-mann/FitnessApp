@@ -20,8 +20,12 @@ struct ActivityCard: View {
                 HStack(alignment: .top){
                     VStack(alignment: .leading, spacing: 8){
                         Text(activity.title)
+                            .font(.system(size: 16))
                         
                         Text(activity.subtitle)
+                            .font(.system(size: 14)) // Custom font size
+                            .foregroundColor(.gray) // Custom font color
+
                     }
                     
                     Spacer()
@@ -31,11 +35,13 @@ struct ActivityCard: View {
                 }
                 
                 Text("\(activity.amount)")
-                    .font(.title)
+                    .font(.system(size: 18))
                     .bold()
                     .padding()
             }.padding()
-        }.padding()
+        }
+        .frame(width: UIScreen.main.bounds.width * 0.45)
+        .padding()
     }
 }
 
