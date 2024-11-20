@@ -33,7 +33,7 @@ struct FitnessTabView: View {
                 Image(systemName: "house")
             }
             
-            HistoricDataView()
+            ChartsView()
                 .tag("Historic")
                 .tabItem {
                 Image(systemName: "chart.line.uptrend.xyaxis")

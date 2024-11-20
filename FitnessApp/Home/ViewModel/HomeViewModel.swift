@@ -12,7 +12,7 @@ class HomeViewModel: ObservableObject {
     let healthManager = HealthManager.shared
     @Published var calories: Int =  123
     @Published var exercise: Int =  23
-    @Published var stand: Int =  3
+    @Published var stand: Int =  300
 
     @Published var activities = [Activity]()
     @Published var workouts =
