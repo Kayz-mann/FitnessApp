@@ -234,8 +234,58 @@ class HealthManager {
         
         HKHealthStore().execute(query)
     }
+    
 
     
 
 
+}
+
+extension HealthManager {
+    struct YearChartDataResult {
+        let ytd: [DailyStepModel]
+        let onYear: [DailyStepModel]
+        
+    }
+    func fetchYTDOneYearChartData(completion: @escaping (Result<YearChartDataResult, Error>) -> Void) {
+//        let steps = HKQuantityType(.stepCount)
+        guard let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
+               completion(.failure(NSError(domain: "HealthManager", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not create step count type"])))
+               return
+           }
+        let calendar = Calendar.current
+        
+        var oneYearMonths = [DailyStepModel]()
+        var ytdMonths = [DailyStepModel]()
+        
+        for i in 0...11 {
+            let month = calendar.date(byAdding: .month, value: -i, to: Date()) ?? Date()
+            let (startOfMonth, endOfMonth) = month.fetchMonthStartAndEndDate()
+            let predicate = HKQuery.predicateForSamples(withStart: startOfMonth, end: endOfMonth)
+            let query = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) {_, results,
+                error in
+                guard let quantity = results?.sumQuantity(), error == nil else {
+                    completion(.failure(URLError(.badURL)))
+                    return
+                }
+                
+                let stepCount = Int(quantity.doubleValue(for: HKUnit.count()))
+                
+                if i == 0 {
+                    oneYearMonths.append(DailyStepModel(date: month, count: Int(stepCount)))
+                    ytdMonths.append(DailyStepModel(date: month, count: Int(stepCount)))
+                } else {
+                    oneYearMonths.append(DailyStepModel(date: month, count: Int(stepCount)))
+                    if calendar.component(.year, from: month) == calendar.component(.year, from: Date()) {
+                        ytdMonths.append(DailyStepModel(date: month, count: Int(stepCount)))
+
+                    }
+                }
+                if i == 11 {
+                    completion(.success(YearChartDataResult(ytd: ytdMonths, onYear: oneYearMonths)))
+                }
+            }
+            healthStore.execute(query)
+        }
+    }
 }

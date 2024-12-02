@@ -29,12 +29,58 @@
 		0D2231592CD51B73002D2869 /* FitnessAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		0D2231412CD51B72002D2869 /* FitnessApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FitnessApp;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0D22A7BD2CFDBAD2006AC311 /* Exceptions for "FitnessApp" folder in "FitnessApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ActivityCard.swift,
+				Assets.xcassets,
+				Charts/Model/ChartsModel.swift,
+				Charts/ViewModel/ChartsViewModel.swift,
+				Charts/Views/ChartsView.swift,
+				Charts/Views/StatisticsCardView.swift,
+				ContentView.swift,
+				FitnessAppApp.swift,
+				FitnessTabView.swift,
+				Home/Model/Activity.swift,
+				Home/Model/Workout.swift,
+				Home/View/HomeView.swift,
+				Home/View/ProgressCricleView.swift,
+				Home/ViewModel/HomeViewModel.swift,
+				Managers/HealthManager.swift,
+				"Preview Content/Preview Assets.xcassets",
+				"Utils/HKWorkoutActivityType+Ext.swift",
+				WorkoutCard.swift,
+			);
+			target = 0D22313E2CD51B72002D2869 /* FitnessApp */;
 		};
+		0D22A7BE2CFDBAD2006AC311 /* Exceptions for "FitnessApp" folder in "FitnessAppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ActivityCard.swift,
+				Assets.xcassets,
+				Charts/Model/ChartsModel.swift,
+				Charts/ViewModel/ChartsViewModel.swift,
+				Charts/Views/ChartsView.swift,
+				Charts/Views/StatisticsCardView.swift,
+				ContentView.swift,
+				FitnessAppApp.swift,
+				FitnessTabView.swift,
+				Home/Model/Activity.swift,
+				Home/Model/Workout.swift,
+				Home/View/HomeView.swift,
+				Home/View/ProgressCricleView.swift,
+				Home/ViewModel/HomeViewModel.swift,
+				Managers/HealthManager.swift,
+				"Preview Content/Preview Assets.xcassets",
+				"Utils/HKWorkoutActivityType+Ext.swift",
+				WorkoutCard.swift,
+			);
+			target = 0D2231582CD51B73002D2869 /* FitnessAppUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		0D2231522CD51B73002D2869 /* FitnessAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FitnessAppTests;
@@ -43,6 +89,15 @@
 		0D22315C2CD51B73002D2869 /* FitnessAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FitnessAppUITests;
+			sourceTree = "<group>";
+		};
+		0D22A7AA2CFDBAD2006AC311 /* FitnessApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0D22A7BD2CFDBAD2006AC311 /* Exceptions for "FitnessApp" folder in "FitnessApp" target */,
+				0D22A7BE2CFDBAD2006AC311 /* Exceptions for "FitnessApp" folder in "FitnessAppUITests" target */,
+			);
+			path = FitnessApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,10 +130,10 @@
 		0D2231362CD51B72002D2869 = {
 			isa = PBXGroup;
 			children = (
-				0D2231412CD51B72002D2869 /* FitnessApp */,
 				0D2231522CD51B73002D2869 /* FitnessAppTests */,
 				0D22315C2CD51B73002D2869 /* FitnessAppUITests */,
 				0D2231402CD51B72002D2869 /* Products */,
+				0D22A7AA2CFDBAD2006AC311 /* FitnessApp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,9 +161,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				0D2231412CD51B72002D2869 /* FitnessApp */,
 			);
 			name = FitnessApp;
 			packageProductDependencies = (
@@ -155,6 +207,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				0D22315C2CD51B73002D2869 /* FitnessAppUITests */,
+				0D22A7AA2CFDBAD2006AC311 /* FitnessApp */,
 			);
 			name = FitnessAppUITests;
 			packageProductDependencies = (
