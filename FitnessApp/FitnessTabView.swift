@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FitnessTabView: View {
     @State var selectedTab =  "Home"
+    @State var showTerms =  true
+    @State var username: String? = nil
     
     init() {
 // Creates a new UITabBarAppearance instance to customize the tab bar's visual
@@ -39,7 +41,15 @@ struct FitnessTabView: View {
                 Image(systemName: "chart.line.uptrend.xyaxis")
             }
             
-            
+            LeaderboardView(showTerms: $showTerms)
+                .tag("Leaderboard")
+                .tabItem{
+                    Image(systemName: "list.bullet")
+                }
+        
+        }
+        .onAppear{
+            showTerms =  username == nil
         }
     }
 }

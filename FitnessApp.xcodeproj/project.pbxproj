@@ -47,6 +47,8 @@
 				Home/View/HomeView.swift,
 				Home/View/ProgressCricleView.swift,
 				Home/ViewModel/HomeViewModel.swift,
+				Leaderboard/View/LeaderboardView.swift,
+				Leaderboard/View/TermsView.swift,
 				Managers/HealthManager.swift,
 				"Preview Content/Preview Assets.xcassets",
 				"Utils/HKWorkoutActivityType+Ext.swift",
